@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="#8A898E">
+  <symbol id="home">
+    <path fill-rule="evenodd" d="M.679 8.203 9.339.58a1 1 0 0 1 1.322 0l8.66 7.622A2 2 0 0 1 20 9.704V19a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.704a2 2 0 0 1 .679-1.501ZM9 13a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H9Z" clip-rule="evenodd"/>
+  </symbol>
+</svg>

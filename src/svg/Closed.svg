@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
+  <symbol id="closed">
+   <path fill="#006CFF" fill-rule="evenodd" d="M7.447 12 2.67 7l4.777-5a1.202 1.202 0 0 0 0-1.656 1.093 1.093 0 0 0-1.592 0L.33 6.121C.1 6.362-.014 6.681.001 7c-.015.319.098.638.33.879l5.524 5.777a1.093 1.093 0 0 0 1.592 0 1.202 1.202 0 0 0 0-1.656Z" clip-rule="evenodd"/>
+  </symbol>
+</svg>
