@@ -1,86 +1,44 @@
 <template>
-  <h1>Crypto</h1>
-  <Input :changeAmount="changeAmount" :convert="convert" />
-  <p v-show="error !=''">{{ error }}</p>
-  <p v-show="result !=0" className="result-text">{{ result }}</p>
-  <div className="selectors">
-    <Selector :setCrypto="setCryptoFirst" />
-    <Selector :setCrypto="setCryptoSecond"/>
-  </div>  
+  <Navbar :changeNavFlag="changeNavFlag" :navFlag="this.navFlag"/>
+  <Home v-show="navFlag == 1"/>
+  <MainEvent v-show="navFlag == 2"/>
+  <Union v-show="navFlag == 3" />
+  <Chat_Closed v-show="chatFlag == 1" :changeChatFlag="changeChatFlag" :chatFlag="this.chatFlag"/>
+  <Chat v-show="chatFlag == 2" :changeChatFlag="changeChatFlag" :chatFlag="this.chatFlag"/>
 </template>
 
 
 <script>
-import Input from './components/Input.vue'
-import Selector from './components/Selector.vue'
-import CryptoConvert from 'crypto-convert';
-
-const convert = new CryptoConvert();
+import Navbar from './components/NavBar.vue'
+import Chat from './components/Chat.vue'
+import Home from './components/Home.vue'
+import MainEvent from './components/MainEvent.vue'
+import Union from './components/Union.vue'
+import Chat_Closed from './components/Chat_Closed.vue'
 
 export default {
-    components: {
-        Input,
-        Selector
-    },
-    data() {
-        return {
-            amount: 0,
-            cryptoFirst: '',
-            cryptoSecond: '',
-            error: '',
-            result: 0
-        }
-    },
-    methods: {
-        changeAmount(val) {
-            this.amount = val
-        },
-        setCryptoFirst(val) {
-            this.cryptoFirst = val
-        },
-        setCryptoSecond(val) {
-            this.cryptoSecond = val
-        },
-        async convert() {
-            if(this.amount <= 0) {
-                this.error = 'Введите число больше нуля';
-                return
-            }
-            else if(this.cryptoFirst == this.cryptoSecond) {
-                this.error = 'Выберите разные валюты';
-                return
-            }
-            else if(this.cryptoFirst == '' || this.cryptoSecond == '') {
-                this.error = 'Выберите валюту';
-                return
-            }
-
-            this.error = '';
-
-            await convert.ready();
-
-            if(this.cryptoFirst == 'BTC' && this.cryptoSecond=='ETH')
-                this.result = convert.BTC.ETH(this.amount);
-            else if(this.cryptoFirst == 'BTC' && this.cryptoSecond=='USDT')
-                this.result = convert.BTC.USDT(this.amount);
-            else if(this.cryptoFirst == 'ETH' && this.cryptoSecond=='BTC')
-                this.result = convert.ETH.BTC(this.amount);
-            else if(this.cryptoFirst == 'ETH' && this.cryptoSecond=='USDT')
-                this.result = convert.ETH.USDT(this.amount);
-            else if(this.cryptoFirst == 'USDT' && this.cryptoSecond=='ETH')
-                this.result = convert.USDT.ETH(this.amount);
-            else if(this.cryptoFirst == 'USDT' && this.cryptoSecond=='BTC')
-                this.result = convert.USDT.BTC(this.amount);
-        }
+  components: {Navbar, Chat, Home, MainEvent, Union, Chat_Closed},
+  data() {
+    return {
+      navFlag: 1,
+      chatFlag: 1,
+      activeteFlag: false
     }
+  },
+  methods: {
+    changeNavFlag(val) {
+      this.navFlag = val
+    },
+    changeChatFlag(val) {
+      this.chatFlag = val
+    }
+  }
 }
 </script>
 
 <style scoped>
-.selectors {
-    display: flex;
-    justify-content: space-around;
-    width: 700px;
-    margin: 0 auto;
+.app {
+  display: flex;
+  flex-direction: row;
 }
 </style>

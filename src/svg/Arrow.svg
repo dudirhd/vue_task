@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="none">
+<symbol id='arrow'>
+  <path fill="#B2B1B5" d="M8 4a1 1 0 0 1-1 1H1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 1 1 1v2.586c0 .89 1.077 1.337 1.707.707l5.586-5.586a1 1 0 0 0 0-1.414L9.707.707C9.077.077 8 .523 8 1.414V4Z"/>
+<symbol>
+</svg>
